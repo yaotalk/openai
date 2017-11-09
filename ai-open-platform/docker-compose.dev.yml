@@ -1,0 +1,32 @@
+version: '2'
+services:
+  aop-config:
+    build: aop-config
+    ports:
+      - 8888:8888
+
+  aop-registry:
+    build: aop-registry
+    ports:
+      - 8761:8761
+
+  aop-gateway:
+    build: aop-gateway
+    ports:
+      - 80:80
+
+  aop-auth-service:
+    build: aop-auth-service
+    ports:
+      - 5000:5000
+
+  aop-auth-mysql:
+    build: aop-auth-mysql
+    ports:
+      - 3306:3306
+
+  aop-monitoring:
+    build: aop-monitoring
+    ports:
+      - 8040:8040
+      - 8041:8041

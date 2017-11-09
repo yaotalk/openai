@@ -1,0 +1,5 @@
+1、拷贝文件到/home目录
+2、cd /home
+3、chmod +x deploy.sh
+4、./deploy.sh
+5、访问http://ip:6699

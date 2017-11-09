@@ -1,0 +1,78 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.minivision.swagger.SwaggerProperties",
+      "name": "swagger.ui",
+      "type": "com.minivision.swagger.SwaggerProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.minivision.swagger.SwaggerProperties",
+      "defaultValue": "[set your api basePackage via 'swagger.ui.basePackage']",
+      "name": "swagger.ui.base-package",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.minivision.swagger.SwaggerProperties",
+      "defaultValue": "[set contact via 'swagger.ui.contact']",
+      "name": "swagger.ui.contact",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.minivision.swagger.SwaggerProperties",
+      "defaultValue": "[add your api description via 'swagger.ui.description']",
+      "name": "swagger.ui.description",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.minivision.swagger.SwaggerProperties",
+      "defaultValue": "[set email via 'swagger.ui.email']",
+      "name": "swagger.ui.email",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.minivision.swagger.SwaggerProperties",
+      "defaultValue": true,
+      "name": "swagger.ui.enable",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.minivision.swagger.SwaggerProperties",
+      "defaultValue": "\/error*",
+      "name": "swagger.ui.excludes",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.minivision.swagger.SwaggerProperties",
+      "defaultValue": "webapi",
+      "name": "swagger.ui.group",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.minivision.swagger.SwaggerProperties",
+      "defaultValue": "License",
+      "name": "swagger.ui.license",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.minivision.swagger.SwaggerProperties",
+      "defaultValue": "https:\/\/opensource.org\/licenses\/MIT",
+      "name": "swagger.ui.license-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.minivision.swagger.SwaggerProperties",
+      "defaultValue": "[set an api title via 'swagger.ui.title']",
+      "name": "swagger.ui.title",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.minivision.swagger.SwaggerProperties",
+      "defaultValue": "1.0.0",
+      "name": "swagger.ui.version",
+      "type": "java.lang.String"
+    }
+  ]
+}

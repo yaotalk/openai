@@ -1,0 +1,37 @@
+server:
+  context-path: /faceset
+  port: 7000
+  address: 0.0.0.0
+  
+spring:
+  resources:
+    static-locations: 
+    - classpath:/META-INF/resources/
+    - classpath:/resources/
+    - classpath:/static/
+    - classpath:/public/
+  jpa:
+    hibernate.ddl-auto: update
+  datasource:
+    url: jdbc:mysql://192.168.123.12:3306/faceset?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+    username: root
+    password: root
+    
+faceservice:
+  basePath: http://localhost:8081
+  
+feign:
+  hystrix:
+    enabled: true
+  okhttp:
+    enabled: true
+    
+management:
+  context-path: /manage
+  
+eureka:
+  instance:
+    health-check-url-path: ${server.context-path}${management.context-path}/health
+    status-page-url-path: ${server.context-path}${management.context-path}/info
+    metadata-map:
+      management.context-path: ${server.context-path}${management.context-path}

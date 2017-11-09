@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>microservice</artifactId>
+	<version>1.0.0-RELEASE</version>
+	<packaging>jar</packaging>
+
+	<name>microservice archetype</name>
+	<description>Minivision Microservice Archetype</description>
+	<url>http://192.168.123.15:8090/pages/viewpage.action?pageId=65580</url>
+	
+	<developers>
+	    <developer>
+	      <id>PanXinmiao</id>
+	      <name>PanXinmiao</name>
+	      <email>panxinmiao@minivision.cn</email>
+	      <organization>minivision.cn</organization>
+	      <organizationUrl>http://192.168.123.15:8090/pages/viewpage.action?pageId=65580</organizationUrl>
+	      <roles>
+	        <role>Tech lead</role>
+	      </roles>
+	    </developer>
+	 </developers>
+	
+	<scm>
+		<url>http://192.168.123.15:8060/browse/open_plat</url>
+	</scm>
+	
+	<parent>
+        <groupId>com.minivision.aop</groupId>
+        <artifactId>microservice-starter-parent</artifactId>
+        <version>1.0.0-RELEASE</version>
+    </parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>artifactory</id>
+			<name>Minivision Artifactory Repository</name>
+			<url>http://192.168.123.12:8081/artifactory/libs-release</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>artifactory</id>
+			<name>Minivision Artifactory Repository</name>
+			<url>http://192.168.123.12:8081/artifactory/libs-release</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.minivision.test.App</mainClass>
+                    <executable>true</executable>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

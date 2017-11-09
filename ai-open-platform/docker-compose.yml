@@ -1,0 +1,92 @@
+version: '2'
+services:
+  aop-config:
+    environment:
+      CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
+    image: minivision/aop-config
+    container_name: aop-config
+    restart: always
+    ports:
+      - 8888:8888
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  aop-registry:
+    environment:
+      CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
+    image: minivision/aop-registry
+    container_name: aop-registry
+    links:
+     - aop-config
+    restart: always
+    ports:
+      - 8761:8761
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  aop-gateway:
+    environment:
+      CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
+    image: minivision/aop-gateway
+    container_name: aop-gateway
+    links:
+     - aop-config
+     - aop-registry
+     - aop-auth-service
+    restart: always
+    ports:
+      - 80:80
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  aop-auth-service:
+    environment:
+      CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
+    image: minivision/aop-auth-service
+    container_name: aop-auth-service
+    links:
+     - aop-config
+     - aop-registry
+    restart: always
+    ports:
+      - 5000:5000
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  aop-auth-mysql:
+    environment:
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+    image: minivision/aop-auth-mysql
+    container_name: aop-auth-mysql
+    restart: always
+    ports:
+      - 3306:3306
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  aop-monitoring:
+    environment:
+      CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
+    image: minivision/aop-monitoring
+    container_name: aop-monitoring
+    links:
+     - aop-config
+     - aop-registry
+    restart: always
+    ports:
+      - 8040:8040
+      - 8041:8041
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"

@@ -1,0 +1,40 @@
+zuul:
+  ribbon-isolation-strategy: thread
+  ignoredServices: '*'
+  ignoredPatterns: /**/admin/**
+  host:
+    maxTotalConnections: 500
+    maxPerRouteConnections: 100
+    connect-timeout-millis: 5000
+    socket-timeout-millis: 10000
+  retryable: true
+  prefix: /api
+  routes:
+    auth-service:
+        path: /uaa/**
+        serviceId: aop-auth-service
+        stripPrefix: false
+        retryable: true
+        sensitiveHeaders: Cookie,Set-Cookie,Authorization
+    content-service:
+        path: /content/**
+        serviceId: aop-content-service
+        stripPrefix: false
+        retryable: true
+    face-service:
+        path: /face/**
+        serviceId: aop-face-service
+        stripPrefix: false
+        retryable: true
+    faceset-service:
+        path: /faceset/**
+        serviceId: aop-faceset-service
+        stripPrefix: false
+        retryable: true
+
+server:
+  port: 80
+
+ribbon:
+  okhttp:
+    enabled: true

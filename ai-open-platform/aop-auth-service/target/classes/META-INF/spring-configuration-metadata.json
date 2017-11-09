@@ -1,0 +1,17 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.minivision.aop.auth.config.AuthProperties",
+      "name": "auth",
+      "type": "com.minivision.aop.auth.config.AuthProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.minivision.aop.auth.config.AuthProperties",
+      "name": "auth.api-group",
+      "type": "java.util.Map<java.lang.String,java.lang.String>"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+spring:
+  cloud:
+    config:
+      watch:
+        enabled: false
+        initialDelay: 60000
+        delay: 5000
+
+logging:
+  file: ${spring.application.name}.log
+  level:
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 5000
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 2
+  OkToRetryOnAllOperations: true
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    leaseExpirationDurationInSeconds: 60
+    prefer-ip-address: true
+  client:
+    healthcheck:
+      enabled: true
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      
+management:
+  security:
+    enabled: false
+  trace:
+    include: REQUEST_HEADERS,RESPONSE_HEADERS,ERRORS,PATH_INFO,PATH_TRANSLATED,CONTEXT_PATH,USER_PRINCIPAL,PARAMETERS,QUERY_STRING,AUTH_TYPE,REMOTE_ADDRESS,SESSION_ID,REMOTE_USER

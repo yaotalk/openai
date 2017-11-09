@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.123.12:3306/ai-open-plat?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+    username: root
+    password: root
+  jpa:
+    hibernate.ddl-auto: update
+  influxdb:
+    url: http://192.168.123.221:8086
+    username: root
+    password: root
+
+server:
+  context-path: /uaa
+  port: 5000
+  
+management:
+  context-path: /mgmt
+
+eureka:
+  instance:
+    health-check-url-path: ${server.context-path}${management.context-path}/health
+    status-page-url-path: ${server.context-path}${management.context-path}/info
+    metadata-map:
+      management.context-path: ${server.context-path}${management.context-path}
+      
+kong:
+  admin:
+    url: http://192.168.123.84:8001
+  oauth2:
+    url: https://192.168.123.84:8443
+auth:
+  api-group:
+    group1: /face

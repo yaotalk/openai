@@ -1,0 +1,57 @@
+server:
+  context-path: /face
+  port: 8081
+  address: 0.0.0.0
+
+spring:
+  influxdb:
+    url: http://192.168.123.221:8086
+    username: root
+    password: root
+  cache:
+    type: redis
+    cache-names:
+      - face
+  redis:
+    host: 192.168.123.12
+    port: 6379
+    database: 8
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+      timeout: 0
+      
+algorithm:
+  serverAddress:
+    - 192.168.254.254:11000
+  client:
+    service: com.minivision.aop.face.thrift.Serv
+    maxActive: 4
+    idleTime: 180000
+  param:
+    scoreLevels:
+      - 8.2
+      - 10.1
+      - 19.5
+      
+face:
+  image:
+    save: true
+    remove: true
+    
+management:
+  context-path: /manage
+  #port: 8082
+  
+eureka:
+  instance:
+    health-check-url-path: ${server.context-path}${management.context-path}/health
+    status-page-url-path: ${server.context-path}${management.context-path}/info
+    metadata-map:
+      management.context-path: ${server.context-path}${management.context-path}
+  
+info:
+  id: aop-face-service
+  version: 1.0.0-SNAPSHOT
